@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black54,
         leading: const AppIcon(
           icon: Icons.camera_alt_outlined,
         ),
@@ -31,8 +32,8 @@ class HomePage extends StatelessWidget {
           )
         ],
       ),
-      body: MainPageBody(),
-      bottomNavigationBar: BottomBar(),
+      body: const MainPageBody(),
+      bottomNavigationBar: const BottomBar(),
     );
   }
 }
