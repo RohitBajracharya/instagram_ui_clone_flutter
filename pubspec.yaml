@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   fluentui_icons: ^1.0.0
   dots_indicator: ^2.1.1
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:
