@@ -1,38 +1,98 @@
-import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram_clone/screens/bottom_bar.dart';
-import 'package:instagram_clone/widgets/app_icon.dart';
+import 'package:instagram_clone/utils/colors.dart';
+import 'package:instagram_clone/widgets/big_text.dart';
+import 'package:instagram_clone/widgets/posts.dart';
+import 'package:instagram_clone/widgets/stories.dart';
 
-import 'main_page_body.dart';
+import '../widgets/app_icon.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: const AppIcon(
-          icon: Icons.camera_alt_outlined,
-        ),
-        title: const Center(child: Text('Instagram')),
-        actions: const [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Row(
+    return SafeArea(
+      child: Column(
+        children: [
+          //appbar
+          Container(
+            padding: const EdgeInsets.symmetric(
+              vertical: 16.0,
+              horizontal: 10.0,
+            ),
+            height: 64,
+            color: AppColors.barColor,
+            child: const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                AppIcon(icon: Icons.live_tv),
-                SizedBox(
-                  width: 24,
+                //camera icon
+                AppIcon(
+                  icon: Icons.camera_alt_outlined,
                 ),
-                AppIcon(icon: Icons.send),
+                BigText(text: 'Instagram'),
+                //live and dm icon
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      AppIcon(icon: Icons.live_tv),
+                      SizedBox(
+                        width: 24,
+                      ),
+                      AppIcon(icon: Icons.send),
+                    ],
+                  ),
+                ),
               ],
             ),
-          )
+          ),
+          //main body
+          Expanded(
+            child: Container(
+              color: AppColors.backgroundColor,
+              child: ListView(
+                children: [
+                  //stories
+                  Container(
+                    height: 100,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 7, // Replace with the actual number of stories
+                      itemBuilder: (context, index) {
+                        return StoriesWidget(
+                          imagePath: "assets/images/pp1.jpg",
+                          text: "Story $index",
+                        );
+                      },
+                    ),
+                  ),
+                  const Divider(color: Colors.grey),
+                  //posts
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: 3, // Replace with the actual number of posts
+                    itemBuilder: (context, index) {
+                      return const Padding(
+                        padding: EdgeInsets.only(bottom: 4.0),
+                        child: PostWidget(
+                          imagePath: "assets/images/post1.jpg",
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
-      body: MainPageBody(),
-      bottomNavigationBar: BottomBar(),
     );
   }
 }
