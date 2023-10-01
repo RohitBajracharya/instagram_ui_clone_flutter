@@ -3,18 +3,22 @@ import 'package:flutter/material.dart';
 
 class BigText extends StatelessWidget {
   final String text;
+  final double? size;
+  final FontWeight? fontWeight;
   const BigText({
     Key? key,
     required this.text,
+    this.size = 14,
+    this.fontWeight = FontWeight.normal,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: const TextStyle(
-        fontSize: 14,
-        fontWeight: FontWeight.bold,
+      style: TextStyle(
+        fontSize: size,
+        fontWeight: fontWeight,
       ),
     );
   }

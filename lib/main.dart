@@ -3,6 +3,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:instagram_clone/screens/main_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:instagram_clone/screens/home_page.dart';
+import 'package:instagram_clone/bar/notification_page_app_bar.dart';
 import 'package:instagram_clone/screens/search_page.dart';
 
-import '../controller/route_controller.dart';
+import '../screens/notification_page.dart';
+import 'route_controller.dart';
 
 class ScreenGenerator extends StatelessWidget {
   const ScreenGenerator({super.key});
@@ -18,6 +20,8 @@ class ScreenGenerator extends StatelessWidget {
           return const HomePage();
         case "search":
           return const SearchPage();
+        case "notification":
+          return const NotificationPage();
         default:
           return Container();
       }

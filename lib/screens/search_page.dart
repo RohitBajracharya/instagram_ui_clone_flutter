@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram_clone/utils/colors.dart';
 import 'package:instagram_clone/widgets/app_icon.dart';
 import 'package:instagram_clone/widgets/big_text.dart';
+import 'package:instagram_clone/widgets/search_page_post.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -38,14 +39,12 @@ class _SearchPageState extends State<SearchPage> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
-                                  // border: Border.all(color: Colors.grey),
                                   color: Color.fromRGBO(38, 38, 38, 1),
                                 ),
                                 child: const TextField(
                                   decoration: InputDecoration(
                                     prefixIcon: AppIcon(
-                                      icon: FluentSystemIcons
-                                          .ic_fluent_search_filled,
+                                      icon: FluentSystemIcons.ic_fluent_search_filled,
                                       color: Colors.grey,
                                     ),
                                     hintText: "Search",
@@ -75,6 +74,7 @@ class _SearchPageState extends State<SearchPage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
+                              //igtv
                               Container(
                                 width: 75,
                                 height: 32,
@@ -84,8 +84,7 @@ class _SearchPageState extends State<SearchPage> {
                                   border: Border.all(color: Colors.grey),
                                 ),
                                 child: const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     AppIcon(
@@ -97,6 +96,7 @@ class _SearchPageState extends State<SearchPage> {
                                 ),
                               ),
                               const SizedBox(width: 6.0),
+                              //shop
                               Container(
                                 width: 75,
                                 height: 32,
@@ -106,8 +106,7 @@ class _SearchPageState extends State<SearchPage> {
                                   border: Border.all(color: Colors.grey),
                                 ),
                                 child: const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     AppIcon(icon: Icons.shopping_bag, size: 20),
@@ -116,6 +115,7 @@ class _SearchPageState extends State<SearchPage> {
                                 ),
                               ),
                               const SizedBox(width: 6.0),
+                              //style
                               Container(
                                 width: 75,
                                 height: 32,
@@ -125,8 +125,7 @@ class _SearchPageState extends State<SearchPage> {
                                   border: Border.all(color: Colors.grey),
                                 ),
                                 child: const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     BigText(text: "Style"),
@@ -134,6 +133,7 @@ class _SearchPageState extends State<SearchPage> {
                                 ),
                               ),
                               const SizedBox(width: 6.0),
+                              // sports
                               Container(
                                 width: 75,
                                 height: 32,
@@ -143,8 +143,7 @@ class _SearchPageState extends State<SearchPage> {
                                   border: Border.all(color: Colors.grey),
                                 ),
                                 child: const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     BigText(text: "Sports"),
@@ -152,6 +151,7 @@ class _SearchPageState extends State<SearchPage> {
                                 ),
                               ),
                               const SizedBox(width: 6.0),
+                              //movie
                               Container(
                                 width: 75,
                                 height: 32,
@@ -161,8 +161,7 @@ class _SearchPageState extends State<SearchPage> {
                                   border: Border.all(color: Colors.grey),
                                 ),
                                 child: const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     BigText(text: "Movie"),
@@ -170,6 +169,7 @@ class _SearchPageState extends State<SearchPage> {
                                 ),
                               ),
                               const SizedBox(width: 6.0),
+                              //auto
                               Container(
                                 width: 75,
                                 height: 32,
@@ -179,8 +179,7 @@ class _SearchPageState extends State<SearchPage> {
                                   border: Border.all(color: Colors.grey),
                                 ),
                                 child: const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     BigText(text: "Auto"),
@@ -196,6 +195,19 @@ class _SearchPageState extends State<SearchPage> {
                 ),
               ),
               //main body
+
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  if (index.isOdd) {
+                    return OddSearchPost();
+                  } else {
+                    return EvenSearchPost();
+                  }
+                },
+              )
             ],
           ),
         ),

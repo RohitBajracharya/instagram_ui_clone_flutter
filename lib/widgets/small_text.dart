@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 
 class SmallText extends StatelessWidget {
   final String text;
+  final double? size;
   const SmallText({
     Key? key,
     required this.text,
+    this.size,
   }) : super(key: key);
 
   @override
@@ -13,7 +15,7 @@ class SmallText extends StatelessWidget {
     return Text(
       text,
       style: TextStyle(
-        fontSize: 13,
+        fontSize: size,
       ),
     );
     ;

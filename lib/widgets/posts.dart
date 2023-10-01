@@ -38,7 +38,10 @@ class PostWidget extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        BigText(text: "MS_Dhoni"),
+                        BigText(
+                          text: "MS_Dhoni",
+                          fontWeight: FontWeight.bold,
+                        ),
                         SmallText(text: "Ranchi, India"),
                       ],
                     ),
@@ -127,8 +130,7 @@ class PostWidget extends StatelessWidget {
                         ),
                         SizedBox(width: 5),
                         AppIcon(
-                          icon:
-                              FluentSystemIcons.ic_fluent_share_android_regular,
+                          icon: FluentSystemIcons.ic_fluent_share_android_regular,
                           size: 32,
                         ),
                       ],
@@ -139,8 +141,7 @@ class PostWidget extends StatelessWidget {
                       dotsCount: 3,
                       position: 0,
                       decorator: const DotsDecorator(
-                        spacing:
-                            EdgeInsets.all(4.0), // Adjust the spacing as needed
+                        spacing: EdgeInsets.all(4.0), // Adjust the spacing as needed
                         activeColor: Colors.blue,
                         size: Size(
                           7.0,
@@ -212,8 +213,7 @@ class PostWidget extends StatelessWidget {
                       SizedBox(width: 10),
                       //caption
                       SmallText(
-                        text:
-                            "Playing Beach Cricket with Friends is always fun",
+                        text: "Playing Beach Cricket with Friends is always fun",
                       ),
                     ],
                   ),
